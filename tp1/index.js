@@ -18,7 +18,7 @@ escribir=flag;
 if(escribir){
     fs.writeFileSync(ruta,texto);
 }else{
-    throw "el archivo no existe";
+    throw new Error("el archivo no existe");
 }
 
 }
@@ -89,10 +89,6 @@ export {
     combinarNArrays
 }
 
-//leerArchivo("./Archivos/Archivo1.txt");
-//escribirTextoEnArchivo("./Archivos/Archivo3.txt","reescribir2",true);
-//transformarStringEnArrayDeNumeros( "123 | 456 | 789 | 1bc | 10","|");
-//transformarArrayDeNumerosAUnSoloString([123, 456, 789, 10],",");
-//combinarDosArrays([1, 5, 10],[2, 3, 8, 11]);
-//combinarNArrays([[1, 10], [2, 3, 15, 16], [4], [6, 7, 13]]);
+
+
 
