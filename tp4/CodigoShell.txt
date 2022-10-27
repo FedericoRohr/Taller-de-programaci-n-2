@@ -1,0 +1,62 @@
+creacion DB:
+test> use empresa
+
+Creacion de clientes e inserción
+db.clientes.insertMany([{nombre:'Federico',apellido:'Rohr',edad:23,telefono:'44441111', email:'rohr@gmail.com'},
+{nombre:'Maria',apellido:'Perez',edad:60,telefono:'12344321', email:'maria@hotmail.com'},
+{nombre:'Juan',apellido:'Perez',edad:23,telefono:'78945648', email:'juan@perez.com'},
+{nombre:'carlos',apellido:'Campana',edad:60,telefono:'11114444', email:'camapana@yahoo.com'},
+{nombre:'Laura',apellido:'Hojman',edad:4,telefono:'65654545', email:'hojman@laura.com'}]
+)
+
+Creacion de clientes e inserción
+db.productos.insertMany([{nombre:'Lapiz',descripcion:'negro',stock:10,precio:15},
+{nombre:'cartuchera',descripcion:'mediana',stock:3,precio:30},
+{nombre:'hojas',descripcion:'A4 paquete de 50',stock:40,precio:20},
+{nombre:'mochila',descripcion:'rosa/ con rueditas',stock:5,precio:150},])
+
+
+• Listar el nombre de las colecciones contenidas en la base de datos empresa.
+show collections
+
+• Representar todos los documentos contenidos dentro de las colecciones clientes y
+productos.
+
+db.productos.find({})
+db.clientes.find({})
+
+
+• Obtener la cantidad de documentos dentro de cada una de las colecciones.
+db.clientes.count()
+db.productos.count()
+
+• Listar todos los clientes ordenados por edad ascendente.
+db.clientes.find().sort({edad:1})
+
+• Listar todos los productos por orden descendente de stock.
+
+db.productos.find().sort({stock:-1})
+
+• Buscar el producto más caro.
+
+db.productos.find().sort({precio:-1}).limit(1)
+
+• Ordenar los clientes por nombre alfabéticamente ascendente y mostrar los dos
+primeros resultados.
+
+db.clientes.find().sort({nombre:-1}).limit(2)
+
+• Elegir un producto y actualizar su precio.
+db.productos.updateOne({nombre:'Lapiz'},{$set:{precio:20}})
+
+• Elegir un cliente y eliminarlo.
+db.clientes.deleteOne({nombre:'Laura'})
+
+• Listar todos los productos, ordenados por precio ascendente, mostrando sólo los
+campos nombre y precio.
+
+ db.productos.find({},{nombre:1,precio:1,_id:0}).sort({precio:1})
+
+• Mostrar del listado total de clientes, sólo el nombre y el email
+ db.clientes.find({},{nombre:1,email:1,_id:0})
+
